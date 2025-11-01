@@ -1,16 +1,10 @@
-import React from 'react';
-
 type Post = {
   id: number;
   title: string;
   body: string;
 };
 
-type PostCardProps = {
-  post: Post;
-};
-
-const PostCard: React.FC<PostCardProps> = ({ post }) => (
+const PostCard = ({ post }: { post: Post }) => (
   <div id='post-card'>
     <h2>{post.title}</h2>
     <p>{post.body}</p>
