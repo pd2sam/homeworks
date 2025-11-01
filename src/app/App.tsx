@@ -1,7 +1,6 @@
-import React from 'react';
 import MainLayout from '../shared/layouts/MainLayout';
 import PostList from '../widgets/PostList/PostList';
-
+import { ThemeProvider } from '../shared/lib/theme';
 
 const App = () => {
   const posts = [
@@ -11,10 +10,12 @@ const App = () => {
   ];
 
   return (
-    <MainLayout>
-      <h1>Список постов</h1>
-      <PostList posts={posts} />
-    </MainLayout>
+    <ThemeProvider>
+      <MainLayout>
+        <h1>Список постов</h1>
+        <PostList posts={posts} />
+      </MainLayout>
+    </ThemeProvider>
   );
 };
 

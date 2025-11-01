@@ -1,4 +1,3 @@
-import React from 'react';
 import PostCard from '../../entities/post/ui/PostCard';
 
 type Post = {
@@ -7,11 +6,7 @@ type Post = {
   body: string;
 };
 
-type PostListProps = {
-  posts: Post[];
-};
-
-const PostList: React.FC<PostListProps> = ({ posts }) => (
+const PostList = ({ posts }: { posts: Post[] }) => (
   <div>
     {posts.map(post => (
       <PostCard key={post.id} post={post} />
