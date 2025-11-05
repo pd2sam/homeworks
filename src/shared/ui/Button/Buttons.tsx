@@ -1,29 +1,25 @@
-import type { ReactNode, MouseEvent } from 'react';
+import type { ReactNode } from 'react';
 
-export interface ButtonProps {
-  children: ReactNode;
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
-  type?: 'button' | 'submit' | 'reset';
-  variant?: 'primary' | 'secondary' | 'danger';
-  disabled?: boolean;
+interface ButtonProps {
+    onClick: () => void;
+    children: ReactNode;
+    variant?: 'primary' | 'secondary' | 'close';
+    className?: string;
 }
 
-export const Button = ({
-  children,
-  onClick,
-  type = 'button',
-  variant = 'primary',
-  disabled = false,
-}: ButtonProps) => (
-  <button
-    type={type}
-    onClick={disabled ? undefined : onClick}
-    disabled={disabled}
-    className={`button button-${variant}`}
-  >
-    {children}
-  </button>
-);
+const Button = ({ onClick, children, variant = 'primary', className = '' }: ButtonProps) => {
+    const baseClass = variant === 'close' ? 'modal-close' : `button button-${variant}`;
+    const finalClassName = className ? `${baseClass} ${className}` : baseClass;
+
+    return (
+        <button 
+            className={finalClassName}
+            onClick={onClick}
+        >
+            {children}
+        </button>
+    );
+};
 
 export default Button;
 
