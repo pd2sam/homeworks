@@ -1,22 +1,19 @@
-import MainLayout from '../shared/layouts/MainLayout';
-import PostList from '../widgets/PostList/PostList';
-import { ThemeProvider } from '../shared/lib/theme';
+import { useState } from 'react';
+import PostList from "../widgets/PostList/PostList";
+import CommentList from "../widgets/CommentList/ui/CommentList";
+import MainLayout from "../shared/layouts/MainLayout";
+import { ThemeProvider } from "../shared/lib/theme/ThemeContext";
 
 const App = () => {
-  const posts = [
-    { id: 1, title: 'Первый пост', body: 'Описание первого поста' },
-    { id: 2, title: 'Второй пост', body: 'Описание второго поста' },
-    { id: 3, title: 'Третий пост', body: 'Описание третьего поста' },
-  ];
+    const [isLoading] = useState(false);
 
-  return (
-    <ThemeProvider>
-      <MainLayout>
-        <h1>Список постов</h1>
-        <PostList posts={posts} />
-      </MainLayout>
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider>
+            <MainLayout>
+                <PostList isLoading={isLoading} />
+                <CommentList />
+            </MainLayout>
+        </ThemeProvider>
+    );
 };
-
 export default App;

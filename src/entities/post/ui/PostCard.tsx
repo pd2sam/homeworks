@@ -1,14 +1,15 @@
 type Post = {
-  id: number;
-  title: string;
-  body: string;
-};
+    id: number;
+    title: string;
+    body: string;
+}
 
-const PostCard = ({ post }: { post: Post }) => (
-  <div id='post-card'>
-    <h2>{post.title}</h2>
-    <p>{post.body}</p>
-  </div>
-);
-
+const PostCard = ({title, body}: Post) => {
+    return (
+        <div className="post-card">
+            <h2>{title}</h2>
+            <p>{body}</p>
+        </div>
+    )
+}
 export default PostCard;
