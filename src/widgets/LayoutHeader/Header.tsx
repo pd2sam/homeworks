@@ -2,19 +2,33 @@ import { Fragment, useState } from 'react';
 import Modal from '../../shared/ui/Modal/Modal';
 import Button from '../../shared/ui/Button/Buttons';
 import ThemeSwitcher from '../../features/ThemeSwitcher/ui/ThemeSwitcher';
-
+import UserTabs from '../UserTabs/UserTabs';
 const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <Fragment>
-            <div className="header">
-                <h1>Header</h1>
-                <div>
-                    <ThemeSwitcher />
-                    <Button onClick={() => setIsModalOpen(true)}>О проекте</Button>
+            <header className="header">
+                <div className="header__brand">
+                    <span className="header__brand-badge">TypeScript React</span>
+                    <h1 className="header__brand-title">Супер классный проект</h1>
+                    <p className="header__brand-subtitle">
+                        Супер проект
+                    </p>
                 </div>
-            </div>
+                <div className="header__controls">
+                    <UserTabs />
+                    <div className="header__actions">
+                        <ThemeSwitcher />
+                        <Button
+                            onClick={() => setIsModalOpen(true)}
+                            className="header__about-button"
+                        >
+                            О проекте
+                        </Button>
+                    </div>
+                </div>
+            </header>
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <Modal.Header onClose={() => setIsModalOpen(false)}>
                     <h2>Информация о проекте</h2>
