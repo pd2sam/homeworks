@@ -1,8 +1,4 @@
-type Post = {
-    id: number;
-    title: string;
-    body: string;
-}
+import type { Post } from '../../../shared/types/post';
 
 const PostCard = ({title, body}: Post) => {
     return (

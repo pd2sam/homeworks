@@ -1,8 +1,4 @@
-type Post = {
-    id: number;
-    title: string;
-    body: string;
-};
+import type { Post } from '../../../shared/types/post';
 
 export const filterByLength = (posts: Post[], minLength?: number, maxLength?: number): Post[] => {
     return posts.filter(post => {
