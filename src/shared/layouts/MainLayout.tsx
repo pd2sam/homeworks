@@ -9,12 +9,12 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
     return (
         <Fragment>
             <BrowserRouter>
-            <Header />
+                <Header />
+                <main>
+                    {children}
+                </main>
+                <Footer />
             </BrowserRouter>
-            <main>
-                {children}
-            </main>
-            <Footer />
         </Fragment>
     )
 };

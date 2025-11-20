@@ -34,7 +34,7 @@ const UserTabs = () => {
                 </li>
                 <li className="header-nav__item">
                     <NavLink to="/posts/1" className={getLinkClassName}>
-                        Мои посты
+                        Пост ID
                     </NavLink>
                 </li>
             </ul>

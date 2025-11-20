@@ -20,7 +20,7 @@ export default function AlbumPhotos() {
   return (
     <div>
       <h2>Album {id} Photos</h2>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, 100px)", gap: "10px" }}>
+      <div className="album-id">
         {photos.slice(0, 12).map((p) => (
           <img key={p.id} src={p.thumbnailUrl} alt={p.title} title={p.title} />
         ))}
