@@ -1,30 +1,30 @@
 import { useState, useEffect } from 'react';
+import type { Post } from '../../../../shared/types/post';
 
-const usePosts = () => {
-  const [posts, setPosts] = useState([]);        
-  const [loading, setLoading] = useState(true);    
-  const [error, setError] = useState<string | null>(null);        
+function usePosts() {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then((response) => {
         if (!response.ok) {
-          throw new Error(`Ошибка: ${response.status}`);
+          throw new Error('Ошибка загрузки данных');
         }
-        const data = await response.json();
+        return response.json();
+      })
+      .then((data) => {
         setPosts(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Неизвестная ошибка');
-      } finally {
         setLoading(false);
-      }
-    };
-
-    fetchPosts();
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
   }, []);
 
   return { posts, loading, error };
-};
+}
 
 export default usePosts;

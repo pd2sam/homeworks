@@ -615,3 +615,8 @@
         font-size: 12px;
     }
 }
+.album-id {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
+    gap: 10px;
+}

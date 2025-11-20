@@ -9,13 +9,6 @@ const Header = () => {
     return (
         <Fragment>
             <header className="header">
-                <div className="header__brand">
-                    <span className="header__brand-badge">TypeScript React</span>
-                    <h1 className="header__brand-title">Супер классный проект</h1>
-                    <p className="header__brand-subtitle">
-                        Супер проект
-                    </p>
-                </div>
                 <div className="header__controls">
                     <UserTabs />
                     <div className="header__actions">
